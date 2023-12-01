@@ -1,0 +1,34 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "username": "alice123",
+      "displayName": "Alice Johnson",
+      "password": "alice@1234"
+    },
+    {
+      "id": 2,
+      "username": "bob456",
+      "displayName": "Bob Smith",
+      "password": "bob@5678"
+    },
+    {
+      "id": 3,
+      "username": "charlie789",
+      "displayName": "Charlie Brown",
+      "password": "charlie#91011"
+    },
+    {
+      "displayName": "Lam Vip",
+      "password": "123456",
+      "username": "lamtran84",
+      "id": 4
+    },
+    {
+      "displayName": "Lam Vip",
+      "password": "123456",
+      "username": "lamtran84",
+      "id": 5
+    }
+  ]
+}
