@@ -12,6 +12,14 @@ import { UsersModule } from './users/users.module';
       driver: ApolloDriver,
       autoSchemaFile: join(process.cwd(), 'src/schema.gql'),
       sortSchema: true,
+      formatError: (err) => {
+        return {
+          statusCode: err.extensions?.status || 500,
+          message: err.message,
+          error: err.extensions?.code,
+          path: err.path,
+        };
+      },
     }),
     UsersModule,
   ],

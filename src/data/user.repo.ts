@@ -21,12 +21,7 @@ export class UserRepository {
 
   getUserById(id: number): User {
     const data = this.readDataFromFile();
-    const user = data.users.find((u) => u.id === id);
-
-    if (!user) {
-      throw new NotFoundException(`User with id ${id} not found`);
-    }
-    return user;
+    return data.users.find((u) => u.id === id);
   }
 
   addUser(user: CreateUserInput): User {
@@ -39,16 +34,26 @@ export class UserRepository {
     return newUser;
   }
 
-  updateUser(user: UpdateUserInput): void {
+  updateUser(user: UpdateUserInput): User {
     const data = this.readDataFromFile();
     const index = data.users.findIndex((u) => u.id === user.id);
+
+    if (index === -1)
+      throw new NotFoundException(`User with id ${user.id} not found`);
+
     data.users[index] = { ...data.users[index], ...user };
     this.writeDataToFile(data);
+
+    return data.users[index];
   }
 
   removeUser(id: number): void {
     const data = this.readDataFromFile();
     const index = data.users.findIndex((u) => u.id === id);
+
+    if (index === -1)
+      throw new NotFoundException(`User with id ${id} not found`);
+
     data.users.splice(index, 1);
     this.writeDataToFile(data);
   }

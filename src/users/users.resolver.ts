@@ -18,7 +18,7 @@ export class UsersResolver {
     return this.usersRepo.getUsers();
   }
 
-  @Query(() => User, { name: 'user' })
+  @Query(() => User, { name: 'user', nullable: true })
   findOne(@Args('id', { type: () => Int }) id: number) {
     return this.usersRepo.getUserById(id);
   }
@@ -28,7 +28,7 @@ export class UsersResolver {
     return this.usersRepo.updateUser(updateUserInput);
   }
 
-  @Mutation(() => User)
+  @Mutation(() => User, { nullable: true })
   removeUser(@Args('id', { type: () => Int }) id: number) {
     return this.usersRepo.removeUser(id);
   }
