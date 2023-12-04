@@ -29,6 +29,12 @@
       "password": "123456",
       "username": "lamtran84",
       "id": 8
+    },
+    {
+      "displayName": "Osaka",
+      "password": "123456",
+      "username": "osakaba",
+      "id": 9
     }
   ]
 }
