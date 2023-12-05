@@ -14,6 +14,15 @@ type Mutation {
   updateUser(updateUserInput: UpdateUserInput!): User!
 }
 
+"""ObjectId is a mongodb ObjectId. String of 12 or 24 hex chars"""
+scalar ObjectId
+
+type Post {
+  content: String!
+  id: ObjectId!
+  title: String!
+}
+
 type Query {
   checkUser(password: String!, username: String!): User!
   user(id: Int!): User
